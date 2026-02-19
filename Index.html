@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G Reh Per Noi - Mascarilla LED</title>
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+body { margin:0; font-family: 'Segoe UI', sans-serif; background:#fff; color:#111;}
+.topbar { background:#e60023; color:white; text-align:center; padding:10px; font-weight:bold;}
+header { text-align:center; padding:20px; background:black; color:white;}
+.container { max-width:1100px; margin:auto; padding:40px 20px;}
+.hero { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:40px;}
+.hero img { max-width:400px; border-radius:20px;}
+.price { font-size:32px; color:#e60023; font-weight:bold;}
+.old-price { text-decoration:line-through; color:gray;}
+button { background:black; color:white; padding:15px 30px; border:none; border-radius:40px; cursor:pointer; font-size:16px;}
+button:hover { background:#333;}
+.badge { background:#e60023; color:white; padding:8px 15px; border-radius:20px; display:inline-block; margin-bottom:15px;}
+.countdown { font-size:18px; margin-top:10px; color:#e60023; font-weight:bold;}
+.section { padding:60px 20px; text-align:center;}
+.reviews { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:40px;}
+.review { border:1px solid #eee; padding:20px; border-radius:15px;}
+.faq { max-width:800px; margin:auto; text-align:left;}
+footer { background:black; color:white; text-align:center; padding:30px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+🚚 Envío GRATIS hoy | Oferta termina en <span id="timer"></span>
+</div>
+
+<header>
+<h1>G Reh Per Noi</h1>
+<p>Glow profesional desde casa</p>
+</header>
+
+<div class="container">
+<div class="hero">
+<img src="https://via.placeholder.com/400" alt="Mascarilla LED">
+<div>
+<div class="badge">🔥 Viral 2026</div>
+<h2>Mascarilla Facial LED 7 Colores</h2>
+<p>Reduce arrugas, combate acné y rejuvenece tu piel desde la primera semana.</p>
+<p class="old-price">$149.99</p>
+<p class="price">$89.99</p>
+<button onclick="checkout()">Comprar Ahora</button>
+<p>✔ Garantía 30 días | ✔ Pago Seguro | ✔ Stock Limitado</p>
+</div>
+</div>
+</div>
+
+<section class="section">
+<h2>Resultados Reales</h2>
+<div class="reviews">
+<div class="review">
+★★★★★  
+<p>“Mi piel cambió totalmente en 2 semanas. ¡La amo!”</p>
+<strong>- María L.</strong>
+</div>
+<div class="review">
+★★★★★  
+<p>“Me ahorré cientos en spa. Vale cada dólar.”</p>
+<strong>- Andrea R.</strong>
+</div>
+<div class="review">
+★★★★★  
+<p>“La mejor compra del año. Resultados visibles.”</p>
+<strong>- Sofía G.</strong>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Preguntas Frecuentes</h2>
+<div class="faq">
+<p><strong>¿Es segura para todo tipo de piel?</strong><br>Sí, está diseñada para todo tipo de piel.</p>
+<p><strong>¿Cuándo veré resultados?</strong><br>Muchos usuarios ven mejoras en la primera semana.</p>
+<p><strong>¿Tiene garantía?</strong><br>Sí, 30 días o te devolvemos tu dinero.</p>
+</div>
+</section>
+
+<footer>
+© 2026 G Reh Per Noi | Todos los derechos reservados
+</footer>
+
+<script>
+// Contador 15 minutos
+var time = 900;
+var timer = setInterval(function(){
+var minutes = Math.floor(time / 60);
+var seconds = time % 60;
+document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s";
+time--;
+if(time < 0){ clearInterval(timer); document.getElementById("timer").innerHTML = "Expirada"; }
+},1000);
+
+function checkout(){
+alert("Aquí se conecta Stripe Checkout con tu clave real.");
+}
+</script>
+
+</body>
+</html>
